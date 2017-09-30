@@ -33,9 +33,9 @@ onYesAlert(){
       buttons: [{
       text: 'OK',
       handler: () => {  
-        this.storage.set('Model', '123'); 
+        this.storage.set('Model', 'this.device.model'); 
         // this.device.model
-        this.storage.set('Manufacturer', '456');
+        this.storage.set('Manufacturer', 'this.device.manufacturer');
         // this.device.manufacturer  
         console.log(this.device.model, this.device.manufacturer);
     }
