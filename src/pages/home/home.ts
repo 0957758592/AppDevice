@@ -1,5 +1,8 @@
+import { NavController, ViewController, ModalController } from 'ionic-angular';
+import { ModalPage } from './../modal/modal';
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+
+
 
 @Component({
   selector: 'page-home',
@@ -7,8 +10,36 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  ionViewWillEnter() {
+
+    setTimeout(() => {
+  let gotoModal = this.modalCtrl.create(ModalPage);
+   gotoModal.present();}, 3000)
+
+ }
+
+
+//  onDidDismiss(sempleModal){
+//   sempleModal.dismiss();
+//  }
+
+//  ionViewWillLeave(sempleModal){
+//   // let sempleModal = this.modalCtrl.create(ModalPage);
+//   sempleModal.dismiss();
+//  }
+  
+  constructor(
+    private navCtrl: NavController,
+    public modalCtrl: ModalController,
+    public viewCtrl: ViewController){  }
+
+  onModal(){
+    this.navCtrl.push(ModalPage);
+  }
+
+
+ 
 
   }
 
-}
+

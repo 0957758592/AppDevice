@@ -1,0 +1,78 @@
+<ion-header class="color">
+  <ion-navbar >
+    <ion-title text-center>
+      Device Model Detector App
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding class="content" onload="onAlert()">
+ 
+
+  <ion-card *ngIf="!storageBtn; else update()"> 
+    <ion-card-content>
+      <h2 text-center>Would you like to get your Device Data?</h2>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col text-left>
+        <!-- <button *ngIf="!storageBtn" ion-button 
+        (click)="onYesAlert()" 
+        color="secondary" outline > Yes, Get Data Device </button> -->
+
+        <button ion-button (click)="onYesAlert()" color="secondary" clear > Yes, get data </button>
+       </ion-col>
+
+        <ion-col text-right >
+        <button ion-button (click)="onNoAlert()" clear color="danger">No, close App</button>
+        <!-- <button *ngIf="!disabled" ion-button (click)="onContactUs()" full>Contact Us</button> -->
+        </ion-col>
+    </ion-row>
+
+
+  </ion-card>
+
+<!-- <ng-template #update> -->
+
+  <ion-card *ngIf="storageBtn">
+    <ion-card-content>
+        <ion-list>
+            <ion-item *ngFor="let device of devices">
+               {{device.model}} {{device.manufacturer}}
+            </ion-item>
+         </ion-list>
+      <hr>
+      <h2 text-center>Would you like to update your data Device?</h2>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col text-left>
+        <button ion-button 
+        (click)="onYesAlert()" 
+        color="secondary" clear > Yes, update </button>
+        
+        <!-- <button ion-button (click)="onYesAlert()" color="secondary" clear > Yes, Get Data Device </button> -->
+       </ion-col>
+
+        <ion-col text-right >
+        <button ion-button (click)="onNoAlert()" clear color="danger">No, close App</button>
+        <!-- <button *ngIf="!disabled" ion-button (click)="onContactUs()" full>Contact Us</button> -->
+        </ion-col>
+    </ion-row>
+
+
+  </ion-card>
+  
+<!-- </ng-template> -->
+
+
+
+
+  </ion-content>
+
+<ion-footer padding class="color">
+ 
+  <button ion-button color="light" full (click)="onExitApp()" >Close Modal</button>
+</ion-footer>
